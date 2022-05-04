@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -19,6 +21,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'document',
+        'mobile',
         'email',
         'password',
     ];
@@ -41,4 +45,33 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function wallet():HasOne
+    {
+        return $this->hasOne(Wallet::class);
+    }
+
+    public function transactions():HasMany
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+
+    public function scopeByDocument($query,$document)
+    {
+        return $query->where("document","=",$document);
+    }
+
+    public function scopeByEmail($query,$email)
+    {
+        return $query->where("email","=",$email);
+    }
+
+    public function scopeByMobile($query,$mobile)
+    {
+        return $query->where("mobile","=",$mobile);
+    }
+
+
 }
