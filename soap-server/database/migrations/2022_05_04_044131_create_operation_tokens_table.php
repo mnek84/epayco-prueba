@@ -21,6 +21,8 @@ class CreateOperationTokensTable extends Migration
 
             $table->string("token");
             $table->string("session");
+            $table->string("description");
+            $table->decimal("price",13,3);
 
             $table->timestamps();
         });

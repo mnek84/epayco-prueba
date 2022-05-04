@@ -2,7 +2,11 @@
 
 namespace App\Service;
 
+use App\Jobs\SendSessionIntentToUserMail;
+use App\Models\OperationToken;
+use App\Models\Transaction;
 use App\Models\User;
+use App\Repositories\PaymentRepository;
 use App\Types\SoapResponse;
 use Illuminate\Support\Str;
 
@@ -23,8 +27,6 @@ class WalletService
      */
     public function register(string $document="", string $name="", string $email="", string $mobile="")
     {
-
-        
 
         $user = User::byDocument($document)->first();
 
@@ -108,6 +110,90 @@ class WalletService
             $balance = $user->wallet->balance;
 
             return new SoapResponse(true,0,"",['current_balance'=>$balance]);
+
+
+        }catch (\Exception $e)
+        {
+            throw new SoapFault($e->getCode(),$e->getMessage());
+        }
+
+    }
+
+
+    /**
+     * Crea una intención de Pago
+     *
+     * @param string $document
+     * @param string $mobile
+     * @param string $description
+     * @param float $price
+     *
+     * @return 'App\Types\SoapResponse'
+     */
+    public function createPaymentIntent(string $document="", string $mobile="", string $description="", float $price=0.00): SoapResponse
+    {
+        $user = User::byDocument($document)->byMobile($mobile)->first();
+
+        if (!$user)
+            return new SoapResponse(false,1,"No existe el usuario");
+
+        try {
+
+            $balance = $user->wallet->balance;
+
+            if ($price>$balance)
+                return new SoapResponse(false,2,"Fondos Insuficientes para la operación");
+
+
+            /* Create Payment Intent */
+            $paymentRepository = new PaymentRepository();
+
+            $intent = $paymentRepository->createPaymentIntent($user,$description,$price);
+
+            /* Disaptch Job */
+            dispatch(new SendSessionIntentToUserMail($intent));
+
+            $message = "Se ha generado un código que fue enviado a su correo. Al utilizar el token recibido más el Id que esta en su correo se confirma la operación";
+            return new SoapResponse(true,0,"",['token'=>$intent->token]);
+
+        }catch (\Exception $e)
+        {
+            throw new SoapFault($e->getCode(),$e->getMessage());
+        }
+
+    }
+
+
+    /**
+     * Confirmar un Pago
+     *
+     * @param string $document
+     * @param string $session
+     *
+     * @return 'App\Types\SoapResponse'
+     */
+    public function confirmatePayment(string $document,string $session): SoapResponse
+    {
+        $operationToken = OperationToken::bySession($session)->first();
+
+        if (!$operationToken)
+            return new SoapResponse(false,1,"No existe la operación");
+
+        try {
+            $balance = $operationToken->user->wallet->balance;
+
+            if ($operationToken->price > $balance)
+                return new SoapResponse(false,1,"Fondos insuficientes para realizar la operación");
+
+
+            $operationToken->user->transactions()->create([
+                'operation_type'=>Transaction::OPERATION_TYPE_REMOVE,
+                'description'=>'[PAGO] '.$operationToken->description,
+                'value'=>$operationToken->price
+            ]);
+
+
+            return new SoapResponse(true,0,"Operación exitosa",[]);
 
 
         }catch (\Exception $e)
