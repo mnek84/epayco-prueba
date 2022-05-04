@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://epayco-soap.local/walletservice/server" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" name="wallet" targetNamespace="http://epayco-soap.local/walletservice/server">
+    <types>
+        <xsd:schema targetNamespace="http://epayco-soap.local/walletservice/server">
+            <xsd:element name="register">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="document" type="xsd:string" nillable="true"/>
+                        <xsd:element name="name" type="xsd:string" nillable="true"/>
+                        <xsd:element name="email" type="xsd:string" nillable="true"/>
+                        <xsd:element name="mobile" type="xsd:string" nillable="true"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="SoapResponse">
+                <xsd:all>
+                    <xsd:element name="success" type="xsd:int"/>
+                    <xsd:element name="cod_error" type="xsd:int"/>
+                    <xsd:element name="message_error" type="xsd:string"/>
+                    <xsd:element name="data" type="soap-enc:Array"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:element name="registerResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="registerResult" type="tns:SoapResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="charge">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="document" type="xsd:string" nillable="true"/>
+                        <xsd:element name="mobile" type="xsd:string" nillable="true"/>
+                        <xsd:element name="value" type="xsd:float" nillable="true"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="chargeResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="chargeResult" type="tns:SoapResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="checkBalance">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="document" type="xsd:string" nillable="true"/>
+                        <xsd:element name="mobile" type="xsd:string" nillable="true"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="checkBalanceResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="checkBalanceResult" type="tns:SoapResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+    <portType name="walletPort">
+        <operation name="register">
+            <documentation>Registrar una nueva cuenta de Usuario</documentation>
+            <input message="tns:registerIn"/>
+            <output message="tns:registerOut"/>
+        </operation>
+        <operation name="charge">
+            <documentation>Cargar Saldo a un usuario</documentation>
+            <input message="tns:chargeIn"/>
+            <output message="tns:chargeOut"/>
+        </operation>
+        <operation name="checkBalance">
+            <documentation>Consulta de Saldo a un usuario</documentation>
+            <input message="tns:checkBalanceIn"/>
+            <output message="tns:checkBalanceOut"/>
+        </operation>
+    </portType>
+    <binding name="walletBinding" type="tns:walletPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="register">
+            <soap:operation soapAction="http://epayco-soap.local/walletservice/server#register"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="charge">
+            <soap:operation soapAction="http://epayco-soap.local/walletservice/server#charge"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="checkBalance">
+            <soap:operation soapAction="http://epayco-soap.local/walletservice/server#checkBalance"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="walletService">
+        <port name="walletPort" binding="tns:walletBinding">
+            <soap:address location="http://epayco-soap.local/walletservice/server"/>
+        </port>
+    </service>
+    <message name="registerIn">
+        <part name="parameters" element="tns:register"/>
+    </message>
+    <message name="registerOut">
+        <part name="parameters" element="tns:registerResponse"/>
+    </message>
+    <message name="chargeIn">
+        <part name="parameters" element="tns:charge"/>
+    </message>
+    <message name="chargeOut">
+        <part name="parameters" element="tns:chargeResponse"/>
+    </message>
+    <message name="checkBalanceIn">
+        <part name="parameters" element="tns:checkBalance"/>
+    </message>
+    <message name="checkBalanceOut">
+        <part name="parameters" element="tns:checkBalanceResponse"/>
+    </message>
+</definitions>

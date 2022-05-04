@@ -1,0 +1,32 @@
+{
+  "name": "auth",
+  "version": "1.1.0",
+  "description": "Epayco Client",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.3.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-errors-to-slack": "^1.0.3",
+    "express-validator": "^6.12.1",
+    "juice": "^8.0.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7",
+    "strong-soap": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/node": "^7.12.6",
+    "@babel/core": "^7.13.10",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.13.12"
+  }
+}
