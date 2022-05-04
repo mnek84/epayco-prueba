@@ -8,6 +8,7 @@ const api = router();
 
 api.get('/hello', userController.hello);
 api.post('/balance', userController.checkBalance);
+api.post('/user/create', userController.userCreate);
 
 /*api.get('/get-city-list',  cityController.getCitiesByStateId);
 
