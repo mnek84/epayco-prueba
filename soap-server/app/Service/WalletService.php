@@ -24,7 +24,10 @@ class WalletService
     public function register(string $document="", string $name="", string $email="", string $mobile="")
     {
 
+        
+
         $user = User::byDocument($document)->first();
+
         if ($user)
             return new SoapResponse(false,1,"El cliente ya existe");
 
@@ -75,6 +78,36 @@ class WalletService
             ]);
 
             return new SoapResponse(true,0,"");
+
+
+        }catch (\Exception $e)
+        {
+            throw new SoapFault($e->getCode(),$e->getMessage());
+        }
+
+    }
+
+
+    /**
+     * Consulta de Saldo a un usuario
+     *
+     * @param string $document
+     * @param string $mobile
+     *
+     * @return 'App\Types\SoapResponse'
+     */
+    public function checkBalance(string $document="",string $mobile="")
+    {
+        $user = User::byDocument($document)->byMobile($mobile)->first();
+
+        if (!$user)
+            return new SoapResponse(false,1,"No existe el usuario");
+
+        try {
+
+            $balance = $user->wallet->balance;
+
+            return new SoapResponse(true,0,"",['current_balance'=>$balance]);
 
 
         }catch (\Exception $e)
