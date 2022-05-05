@@ -58,6 +58,39 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="createPaymentIntent">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="document" type="xsd:string" nillable="true"/>
+                        <xsd:element name="mobile" type="xsd:string" nillable="true"/>
+                        <xsd:element name="description" type="xsd:string" nillable="true"/>
+                        <xsd:element name="price" type="xsd:float" nillable="true"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="createPaymentIntentResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="createPaymentIntentResult" type="tns:SoapResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="confirmatePayment">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="document" type="xsd:string"/>
+                        <xsd:element name="session" type="xsd:string"/>
+                        <xsd:element name="token" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="confirmatePaymentResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="confirmatePaymentResult" type="tns:SoapResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:schema>
     </types>
     <portType name="walletPort">
@@ -75,6 +108,16 @@
             <documentation>Consulta de Saldo a un usuario</documentation>
             <input message="tns:checkBalanceIn"/>
             <output message="tns:checkBalanceOut"/>
+        </operation>
+        <operation name="createPaymentIntent">
+            <documentation>Crea una intención de Pago</documentation>
+            <input message="tns:createPaymentIntentIn"/>
+            <output message="tns:createPaymentIntentOut"/>
+        </operation>
+        <operation name="confirmatePayment">
+            <documentation>Confirmar un Pago</documentation>
+            <input message="tns:confirmatePaymentIn"/>
+            <output message="tns:confirmatePaymentOut"/>
         </operation>
     </portType>
     <binding name="walletBinding" type="tns:walletPort">
@@ -106,6 +149,24 @@
                 <soap:body use="literal"/>
             </output>
         </operation>
+        <operation name="createPaymentIntent">
+            <soap:operation soapAction="http://epayco-soap.local/walletservice/server#createPaymentIntent"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="confirmatePayment">
+            <soap:operation soapAction="http://epayco-soap.local/walletservice/server#confirmatePayment"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
     </binding>
     <service name="walletService">
         <port name="walletPort" binding="tns:walletBinding">
@@ -129,5 +190,17 @@
     </message>
     <message name="checkBalanceOut">
         <part name="parameters" element="tns:checkBalanceResponse"/>
+    </message>
+    <message name="createPaymentIntentIn">
+        <part name="parameters" element="tns:createPaymentIntent"/>
+    </message>
+    <message name="createPaymentIntentOut">
+        <part name="parameters" element="tns:createPaymentIntentResponse"/>
+    </message>
+    <message name="confirmatePaymentIn">
+        <part name="parameters" element="tns:confirmatePayment"/>
+    </message>
+    <message name="confirmatePaymentOut">
+        <part name="parameters" element="tns:confirmatePaymentResponse"/>
     </message>
 </definitions>

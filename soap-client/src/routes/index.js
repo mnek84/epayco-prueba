@@ -8,7 +8,10 @@ const api = router();
 
 api.get('/hello', userController.hello);
 api.post('/balance', userController.checkBalance);
+api.post('/charge', userController.chargeBalance);
 api.post('/user/create', userController.userCreate);
+api.post('/payment/create', userController.createPaymentIntent);
+api.post('/payment/confirm', userController.confirmPayment);
 
 /*api.get('/get-city-list',  cityController.getCitiesByStateId);
 

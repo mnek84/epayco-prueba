@@ -23,7 +23,7 @@ exports.errorResponse = function (res, errCode,msg) {
         error_code:errCode,
         message_error: msg,
     };
-    return res.status(500).json(data);
+    return res.status(404).json(data);
 };
 
 exports.notFoundResponse = function (res, msg) {

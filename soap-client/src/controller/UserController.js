@@ -4,9 +4,7 @@ import {soap} from 'strong-soap';
 
 const url = './src/epayco.wsdl';
 
-
 var options = {};
-
 
 module.exports = {
     userCreate: (req, res, next) => {
@@ -29,16 +27,14 @@ module.exports = {
             };
 
             client.register(requestArgs, function(err, result, envelope, soapHeader) {
-                console.log(result);
                 var checkResult = result.registerResult;
 
                 if (checkResult.success)
                 {
-                    successResponse(res,"");
+                    return successResponse(res,"");
                 }else{
-                    errorResponse(res,checkResult.cod_error,checkResult.message_error);
+                    return errorResponse(res,checkResult.cod_error,checkResult.message_error);
                 }
-                errorResponse(res,"no se");
 
             });
         });
@@ -51,8 +47,7 @@ module.exports = {
             if (err)
             {
                 console.log(err);
-                errorResponse(res,99,"No pudimos conectarnos al WSDL");
-                return err;
+                return errorResponse(res,99,"No pudimos conectarnos al WSDL");
             }
 
 
@@ -70,14 +65,87 @@ module.exports = {
                         'current_balance':parseFloat(defaultItem.value)
                     };
 
-                    successResponseWithData(res,checkResult.message_error, balance)
+                    return successResponseWithData(res,checkResult.message_error, balance)
                 }else{
-                    errorResponse(res,checkResult.cod_error,checkResult.message_error);
+                    return errorResponse(res,checkResult.cod_error,checkResult.message_error);
                 }
 
             });
         });
     },
+    chargeBalance: (req, res, next) => {
+        var options = {};
+        soap.createClient(url, options, function(err, client) {
+            if (err)
+            {
+                console.log(err);
+                return errorResponse(res,99,"No pudimos conectarnos al WSDL");
+            }
+
+            const requestArgs = {
+                'document':req.body.document,
+                'mobile':req.body.mobile,
+                'value':req.body.value
+            };
+
+            client.charge(requestArgs, function(err, result, envelope, soapHeader) {
+                console.log(result);
+                var checkResult = result.chargeResult;
+                return successResponseWithData(res,checkResult.message_error, checkResult.data)
+
+            });
+        });
+    },
+
+
+    createPaymentIntent: (req, res, next) => {
+        var options = {};
+        soap.createClient(url, options, function(err, client) {
+            if (err)
+            {
+                console.log(err);
+                return errorResponse(res,99,"No pudimos conectarnos al WSDL");
+            }
+
+            const requestArgs = {
+                'document':req.body.document,
+                'mobile':req.body.mobile,
+                'description':req.body.description,
+                'price':req.body.price
+            };
+
+            client.createPaymentIntent(requestArgs, function(err, result, envelope, soapHeader) {
+                console.log(result);
+                var checkResult = result.createPaymentIntentResult;
+                return successResponseWithData(res,checkResult.message_error, checkResult.data)
+
+            });
+        });
+    },
+    confirmPayment: (req, res, next) => {
+        var options = {};
+        soap.createClient(url, options, function(err, client) {
+            if (err)
+            {
+                console.log(err);
+                return errorResponse(res,99,"No pudimos conectarnos al WSDL");
+            }
+
+            const requestArgs = {
+                'document':req.body.document,
+                'session':req.body.session,
+                'token':req.body.token
+            };
+
+            client.confirmatePayment(requestArgs, function(err, result, envelope, soapHeader) {
+                console.log(result);
+                var checkResult = result.confirmatePaymentResult;
+                return successResponseWithData(res,checkResult.message_error, checkResult.data)
+
+            });
+        });
+    },
+
     hello: (req, res, next) => {
 
         var options = {};
@@ -85,7 +153,7 @@ module.exports = {
             if (err)
             {
                 console.log(err);
-                return err;
+                return errorResponse(res,99,"No pudimos conectarnos al WSDL");
             }
 
             const requestArgs = {
@@ -96,7 +164,7 @@ module.exports = {
             client.checkBalance(requestArgs, function(err, result, envelope, soapHeader) {
 
                 var checkResult = result.checkBalanceResult;
-                successResponseWithData(res,checkResult.message_error, checkResult.data)
+                return successResponseWithData(res,checkResult.message_error, checkResult.data)
 
             });
         });
