@@ -1,0 +1,1481 @@
+{
+	"info": {
+		"_postman_id": "02e89dca-0fb3-415e-b293-d47f44c099b4",
+		"name": "Epayco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "REST",
+			"item": [
+				{
+					"name": "Registrar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"document\":\"30796419\",\r\n     \"mobile\":\"+5491162192907\",\r\n     \"name\":\"Maximiliano emmanuelli\",\r\n     \"email\":\"mnek84@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Registrar Usuario Ya existe",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"document\":\"30796419\",\r\n     \"mobile\":\"+5491162192907\",\r\n     \"name\":\"Maximiliano emmanuelli\",\r\n     \"email\":\"mnek84@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/user/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"create"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"43-1BoeM0jy07qIpIkQt6WBQ2XgSQE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 May 2022 05:46:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": 0,\n    \"error_code\": 1,\n    \"message_error\": \"El cliente ya existe\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Cargar Saldo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"document\":\"30796419\",\r\n    \"mobile\":\"+5491162192907\",\r\n    \"value\":500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/charge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"charge"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Consulta de Saldo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"document\":\"30796419\",\r\n    \"mobile\":\"+5491162192907\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/balance",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"balance"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-NOLnz1+ps4FtR/pe96SkDMSm3OI\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 May 2022 05:42:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": 1,\n    \"error_code\": 0,\n    \"data\": {\n        \"current_balance\": 1500\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Consulta de Saldo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"document\":\"30796419\",\r\n    \"mobile\":\"+5491162192907\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/balance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"balance"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Consulta de Saldo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"document\":\"30796419\",\r\n    \"mobile\":\"+5491162192907\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/balance",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"balance"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-NOLnz1+ps4FtR/pe96SkDMSm3OI\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 May 2022 05:42:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": 1,\n    \"error_code\": 0,\n    \"data\": {\n        \"current_balance\": 1500\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Crear Intencion de Pago",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"document\":\"30796419\",\r\n    \"mobile\":\"+5491162192907\",\r\n    \"description\":\"Comprar un patatute\",\r\n    \"price\":150\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/payment/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payment",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Intencion de Pago",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"document\":\"30796419\",\r\n    \"mobile\":\"+5491162192907\",\r\n    \"description\":\"Comprar un patatute\",\r\n    \"price\":150\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/payment/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"payment",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "87"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"57-i769KL33fSAVAT/nrT09awivWtU\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 05 May 2022 01:20:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": 1,\n    \"error_code\": 0,\n    \"data\": {\n        \"item\": {\n            \"key\": \"token\",\n            \"value\": \"mK6Fd7Q4RclRGvtc\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Confirmar Pago",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"document\":\"30796419\",\r\n    \"token\":\"mK6Fd7Q4RclRGvtc\",\r\n    \"session\":\"t4vzybgO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/payment/confirm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payment",
+								"confirm"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Confirmar Pago",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"document\":\"30796419\",\r\n    \"token\":\"mK6Fd7Q4RclRGvtc\",\r\n    \"session\":\"t4vzybgO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/payment/confirm",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"payment",
+										"confirm"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-PRS1D8aL3srqiwgIwCuaKNj58l8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 05 May 2022 01:24:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": 1,\n    \"error_code\": 0,\n    \"message_error\": \"Operación exitosa\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "SOAP",
+			"item": [
+				{
+					"name": "Registrar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <register xmlns=\"http://epayco-soap.local/walletservice/server\">\r\n            <document xmlns=\"\">30796419</document>\r\n            <name xmlns=\"\">Maximiliano Emmanuelli</name>\r\n            <email xmlns=\"\">mnek84@gmail.com</email>\r\n            <mobile xmlns=\"\">+5491162192907</mobile>\r\n        </register>\r\n    </Body>\r\n</Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://epayco-soap.local/walletservice/server",
+							"protocol": "http",
+							"host": [
+								"epayco-soap",
+								"local"
+							],
+							"path": [
+								"walletservice",
+								"server"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Registrar Usuario",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <register xmlns=\"http://epayco-soap.local/walletservice/server\">\r\n            <document xmlns=\"\">30796419</document>\r\n            <name xmlns=\"\">Maximiliano Emmanuelli</name>\r\n            <email xmlns=\"\">mnek84@gmail.com</email>\r\n            <mobile xmlns=\"\">+5491162192907</mobile>\r\n        </register>\r\n    </Body>\r\n</Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://epayco-soap.local/walletservice/server",
+									"protocol": "http",
+									"host": [
+										"epayco-soap",
+										"local"
+									],
+									"path": [
+										"walletservice",
+										"server"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 04 May 2022 04:45:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Ubuntu)"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubdomains"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, private"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6ImwrL3RQcGZCeTNwRExIdjYyNEx4ZFE9PSIsInZhbHVlIjoiZHNwNUtaaTdKT0ZZUE1Pd2x4QnRrcHdHZHVVYjNwUVJKZGJlMDJud0FMdHFvWTlaWjUvVitsa1ZyYmNjYzZKZGV1aFhiMURBd3B2Y0hmSjdtenZBcFZxYm8vMEVoZ1lTTms2K2ZyOFNtcE5NOTlOQVF1bmIrOVM1emlIcWJ3VkoiLCJtYWMiOiJmNmNmMDBhMTNhZGVmZDQxMGFjOWVmNjcwNTBlMTdiZWVmMGI2NzhiODIzOTE1ZGFmN2E1ZjYxN2JiYzBjYjc0IiwidGFnIjoiIn0%3D; expires=Wed, 04-May-2022 06:45:22 GMT; Max-Age=7200; path=/; samesite=lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "epayco_soap_server_session=eyJpdiI6InByYjgydHI0NFZnQXN1WWNFNWNaVUE9PSIsInZhbHVlIjoiMFJXUW9iTXFHMnpMZWJVelRpd1lPUlZIanJVWHB2ZUE2TTAwTGN1N21VdzlKQnBZc2dwQWNEU283bEVBMWxXVzNaR2htRmNFQ1ZOOVFlaW1xaGZTNjNXZEh4Q2MvUTJTaVFETHE4T1lzSThZclNxcTZGVnd2cVlwWDk2TVN3ekEiLCJtYWMiOiI2Y2E3M2MxZjYxOGYwYzY0YjgxNmU3ZjAwZThjMTNlZjNmN2JiZWE0MjJkZjQ2MDNjZmRkMjMyZjZlNTc2MjlkIiwidGFnIjoiIn0%3D; expires=Wed, 04-May-2022 06:45:22 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Content-Length",
+									"value": "378"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://epayco-soap.local/walletservice/server\">\n    <SOAP-ENV:Body>\n        <ns1:registerResponse>\n            <registerResult>\n                <success>1</success>\n                <cod_error>0</cod_error>\n                <message_error></message_error>\n                <data>\n                    <item>\n                        <key>name</key>\n                        <value>Maximiliano Emmanuelli</value>\n                    </item>\n                    <item>\n                        <key>document</key>\n                        <value>30796419</value>\n                    </item>\n                    <item>\n                        <key>email</key>\n                        <value>mnek84@gmail.com</value>\n                    </item>\n                    <item>\n                        <key>mobile</key>\n                        <value>+5491162192907</value>\n                    </item>\n                    <item>\n                        <key>updated_at</key>\n                        <value>2022-05-04T04:45:22.000000Z</value>\n                    </item>\n                    <item>\n                        <key>created_at</key>\n                        <value>2022-05-04T04:45:22.000000Z</value>\n                    </item>\n                    <item>\n                        <key>id</key>\n                        <value>1</value>\n                    </item>\n                </data>\n            </registerResult>\n        </ns1:registerResponse>\n    </SOAP-ENV:Body>\n</SOAP-ENV:Envelope>"
+						}
+					]
+				},
+				{
+					"name": "Cargar Saldo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <charge xmlns=\"http://epayco-soap.local/walletservice/server\">\r\n            <document xmlns=\"\">30796419</document>            \r\n            <mobile xmlns=\"\">+5491162192907</mobile>\r\n            <value xmlns=\"\">500</value>\r\n        </charge>\r\n    </Body>\r\n</Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://epayco-soap.local/walletservice/server",
+							"protocol": "http",
+							"host": [
+								"epayco-soap",
+								"local"
+							],
+							"path": [
+								"walletservice",
+								"server"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cargar Saldo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <charge xmlns=\"http://epayco-soap.local/walletservice/server\">\r\n            <document xmlns=\"\">30796419</document>            \r\n            <mobile xmlns=\"\">+5491162192907</mobile>\r\n            <value xmlns=\"\">500</value>\r\n        </charge>\r\n    </Body>\r\n</Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://epayco-soap.local/walletservice/server",
+									"protocol": "http",
+									"host": [
+										"epayco-soap",
+										"local"
+									],
+									"path": [
+										"walletservice",
+										"server"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 04 May 2022 04:57:44 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Ubuntu)"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubdomains"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, private"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6IjdKeG5tM3ZIN3lremFlTHU0VGIwK2c9PSIsInZhbHVlIjoiemRqb1NpUGVtazlrei91TkFNZXBRVXlhRTJqcERjVTJuL05EakJzeFRHNGhycGt4d1RXa2pERXV1V2FTcGtFSmZ2b1NaNDlvL2MwcjEyRDU2K0tkTzZMMlkzaWdRbSt1TnpzUC8rQWMvUjR0NTY3cVFySGdmQ1pDV0xwWlFxak4iLCJtYWMiOiIwMTg5MDAyYzYyMGI2ZjUyODFmODdhZjQ4ZDU3ZWFkNzkzYjQ2OGI5MGU1MDk4YjRkNzU3NzhiYjZmNjYyMzhhIiwidGFnIjoiIn0%3D; expires=Wed, 04-May-2022 06:57:45 GMT; Max-Age=7200; path=/; samesite=lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "epayco_soap_server_session=eyJpdiI6IkFJZlBKNGl3cTBMZ0ZuNE03eGNWOWc9PSIsInZhbHVlIjoiMDBUdEYza3QycmsyV2o4NnEydXhSL2NRbjByNUZSL2NjZWltOC93T1JXTlA3dFJqZDZJTTVOL0lHQmptdEZWVFlSUXRqUkhqZjRRaVV1T0daNEkyK1J3ZmZmTEg5YUxhbHJZYXpuaGFYNTY1Vzl0UlJQZ0lIVDZnSjlhTk1hclEiLCJtYWMiOiJkNzNkZWYzYTQ0OWQyODMxZWY3YTU1ZjllMTY4NjAwZTUwNGQ4YzA3YjdiNWNiZDRkYTZlM2MzZjcxZTQxNmVmIiwidGFnIjoiIn0%3D; expires=Wed, 04-May-2022 06:57:45 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Content-Length",
+									"value": "256"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:ns1=\"http://epayco-soap.local/walletservice/server\">\n    <SOAP-ENV:Body>\n        <ns1:chargeResponse>\n            <chargeResult>\n                <success>1</success>\n                <cod_error>0</cod_error>\n                <message_error></message_error>\n                <data/>\n            </chargeResult>\n        </ns1:chargeResponse>\n    </SOAP-ENV:Body>\n</SOAP-ENV:Envelope>"
+						}
+					]
+				},
+				{
+					"name": "Consulta de Saldo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <checkBalance xmlns=\"http://epayco-soap.local/walletservice/server\">\r\n            <document xmlns=\"\">30796419</document>            \r\n            <mobile xmlns=\"\">+5491162192907</mobile>            \r\n        </checkBalance>\r\n    </Body>\r\n</Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://epayco-soap.local/walletservice/server",
+							"protocol": "http",
+							"host": [
+								"epayco-soap",
+								"local"
+							],
+							"path": [
+								"walletservice",
+								"server"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Consulta de Saldo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <checkBalance xmlns=\"http://epayco-soap.local/walletservice/server\">\r\n            <document xmlns=\"\">30796419</document>            \r\n            <mobile xmlns=\"\">+5491162192907</mobile>            \r\n        </checkBalance>\r\n    </Body>\r\n</Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://epayco-soap.local/walletservice/server",
+									"protocol": "http",
+									"host": [
+										"epayco-soap",
+										"local"
+									],
+									"path": [
+										"walletservice",
+										"server"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 04 May 2022 05:38:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Ubuntu)"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubdomains"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, private"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6IllFSm0xNXltQVpWTklRUHZpMkhna0E9PSIsInZhbHVlIjoiV3NjMlQ5OExUSFZXRmlnN05PWGY2RVlyTXY3eTZ5VkhVeUVPYTd3VVFXLy9iazZ0cFRxMHIyb00zdlVZRlRCY2c0Ykp2djEzK2pZK0NwSzRTdlplcVB6S1p3bGlRVFNaaTVBQ2w1TnFxVHdEWGdXWnZpSSswQlI1VTZiTVVSdlYiLCJtYWMiOiJmZGEyZjhjMWUxYjBmYzE3OTAwOGIzYzkxZmE5ZmQ1NDczMzY0ZThmZGMzY2M4NjBkYmVhYjU4YjQwNjQ1ZjEyIiwidGFnIjoiIn0%3D; expires=Wed, 04-May-2022 07:38:24 GMT; Max-Age=7200; path=/; samesite=lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "epayco_soap_server_session=eyJpdiI6InNQYmttTTVXZnFDV0o3bVlPTlhoa0E9PSIsInZhbHVlIjoickhZbW1lUjZ1L240b2ZFTVUzNHU2MGNFSUFEdmJTbzN0N0dpdG9sK09MOEd3MXVuYVhnUHFMSitrYk5vWkpZZ0VrT1RnOW15d1BjWkFheXJhRjRqUnBZekdMeEdaakszUnhUSkNmQkpXNnB2VFg5SkQyM3hzcHJUajAwQlhOWjYiLCJtYWMiOiJmYmY3YzI4MGNlMDIzYzNlZjUzMTRhZjg0NGNlNmYyYmVlY2ViMzlkOTU0NmJkYjJkNWYyZWE1YTgwMTliYzYwIiwidGFnIjoiIn0%3D; expires=Wed, 04-May-2022 07:38:24 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Content-Length",
+									"value": "273"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=99"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://epayco-soap.local/walletservice/server\">\n    <SOAP-ENV:Body>\n        <ns1:checkBalanceResponse>\n            <checkBalanceResult>\n                <success>1</success>\n                <cod_error>0</cod_error>\n                <message_error></message_error>\n                <data>\n                    <item>\n                        <key>current_balance</key>\n                        <value>1500.000</value>\n                    </item>\n                </data>\n            </checkBalanceResult>\n        </ns1:checkBalanceResponse>\n    </SOAP-ENV:Body>\n</SOAP-ENV:Envelope>"
+						}
+					]
+				},
+				{
+					"name": "Crear Intención de pago",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <createPaymentIntent xmlns=\"http://epayco-soap.local/walletservice/server\">\r\n            <document xmlns=\"\">30796419</document>            \r\n            <mobile xmlns=\"\">+5491162192907</mobile>            \r\n            <description xmlns=\"\">Zapatillas</description>            \r\n            <price xmlns=\"\">1200</price>            \r\n        </createPaymentIntent>\r\n    </Body>\r\n</Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://epayco-soap.local/walletservice/server",
+							"protocol": "http",
+							"host": [
+								"epayco-soap",
+								"local"
+							],
+							"path": [
+								"walletservice",
+								"server"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Intención de pago - Fondos Insuficientes",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <createPaymentIntent xmlns=\"http://epayco-soap.local/walletservice/server\">\r\n            <document xmlns=\"\">30796419</document>            \r\n            <mobile xmlns=\"\">+5491162192907</mobile>            \r\n            <description xmlns=\"\">Zapatillas</description>            \r\n            <price xmlns=\"\">1200</price>            \r\n        </createPaymentIntent>\r\n    </Body>\r\n</Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://epayco-soap.local/walletservice/server",
+									"protocol": "http",
+									"host": [
+										"epayco-soap",
+										"local"
+									],
+									"path": [
+										"walletservice",
+										"server"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 04 May 2022 23:09:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Ubuntu)"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubdomains"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, private"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6Ijh6dzEvVUZTWlZhOW1UdnpCaTg3WVE9PSIsInZhbHVlIjoiK2xpVlBDSmVTdzdURVVUenFTUUcwclRIYWdXK0FkUWhwVUUyUzJWSGhwV2FPOFFPU1FDdXhUTGdmSHoyOExUM0pTSzZIZnpwUjJESVpQS2w2d200Z0Y3bEtJV0ZaVkVuRjA2aEdHQUpGTVZMUWtzdE1scjRadUVhbXVTOTNMdzYiLCJtYWMiOiI3ZjI2ZDU5ZTA4NGMxN2E1ZTQzYTZjN2E4YTBhOTIwNDRhZjc0OGViOWQyNzFiNzg2ZThjODU4NWIyYmVjNzdhIiwidGFnIjoiIn0%3D; expires=Thu, 05-May-2022 01:09:43 GMT; Max-Age=7200; path=/; samesite=lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "epayco_soap_server_session=eyJpdiI6IithZXMrMTBLU0JWS2xpUmE2MEpsS2c9PSIsInZhbHVlIjoiZG9oSmxQMVBMUTFZNmJaK1NUbG5seklObllmdDU4WkJHaXlvQXlmVXBHaDZtRGd5dGdJY255eUdXS0VMRFlGTmpyS2toMldIM3hCVTJWSnhMbE9Dd0h4T29JalE5S1B3TlFoaXpRMU1MemtlYU15d01QVU51QlBUbk5lVS9VY0YiLCJtYWMiOiJhNmIxOWQyNGU5YzdiMWY2OWYwYmU4ZWYyMWVhMGNjMzc2ZGFlZGMwMmM2ZTNmOTQ0ZTYxMmJkNGYxZDUxZDg5IiwidGFnIjoiIn0%3D; expires=Thu, 05-May-2022 01:09:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Content-Length",
+									"value": "300"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:ns1=\"http://epayco-soap.local/walletservice/server\">\n    <SOAP-ENV:Body>\n        <ns1:createPaymentIntentResponse>\n            <createPaymentIntentResult>\n                <success>0</success>\n                <cod_error>2</cod_error>\n                <message_error>Fondos Insuficientes para la operación</message_error>\n                <data/>\n            </createPaymentIntentResult>\n        </ns1:createPaymentIntentResponse>\n    </SOAP-ENV:Body>\n</SOAP-ENV:Envelope>"
+						},
+						{
+							"name": "Crear Intención de pago Exitosa",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <createPaymentIntent xmlns=\"http://epayco-soap.local/walletservice/server\">\r\n            <document xmlns=\"\">30796419</document>            \r\n            <mobile xmlns=\"\">+5491162192907</mobile>            \r\n            <description xmlns=\"\">Zapatillas</description>            \r\n            <price xmlns=\"\">1200</price>            \r\n        </createPaymentIntent>\r\n    </Body>\r\n</Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://epayco-soap.local/walletservice/server",
+									"protocol": "http",
+									"host": [
+										"epayco-soap",
+										"local"
+									],
+									"path": [
+										"walletservice",
+										"server"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 04 May 2022 23:13:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Ubuntu)"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubdomains"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, private"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6IllQZkZVUGhzRlR1cjR6QlVseUpDbVE9PSIsInZhbHVlIjoiR0g3ZklmZ2lNVEhvTkFYWDZMem5OSEMveElOWGN4RU5tTG5YNmFkeitNSUROZVE0MFRwdnBsN3U0Z2hDNmdBaEtrZTQyMzh0MmdnYkRlN1lLelk5VlNxVHkzbnNOQVJETzBZY042MFVxTFFCb2NCNkJJazlCbHVWRlQybjd4NnkiLCJtYWMiOiI4NjQxOGM5YTY0YzZmYTEwYjVmM2I4MDFlMmJiNmYzYTIzMWU5NjMzNDY4NTIwNzk1NGIwZGYyNWY3MWU1YzNiIiwidGFnIjoiIn0%3D; expires=Thu, 05-May-2022 01:13:51 GMT; Max-Age=7200; path=/; samesite=lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "epayco_soap_server_session=eyJpdiI6InppOThJaUVWSDdOWVRDUS9GVnlGdmc9PSIsInZhbHVlIjoibDNuQW5tck1DaDMraER3aEtVYWdKUWwvNk9odjVONWp0Nlg2NG9VVnF2eFlRVmpVRXA3L0JIUExVaXdwQS9TNEhucDVhdm42UkhpTG14OWVlOHg4UDJIQkhLYmE1L1hOUGxDaERCdGxMRE9RZVNRWnNkRko2OVpoblE0WEJhbWwiLCJtYWMiOiJmZDE0YmE0OWNhZGEzOGI5MjgwMGExNDc2YjUzNDkwYjc0ZTA4YWJlNWUzN2QwOTc2OWQ1MTc5ZmMyODA4YTk5IiwidGFnIjoiIn0%3D; expires=Thu, 05-May-2022 01:13:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Content-Length",
+									"value": "283"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://epayco-soap.local/walletservice/server\">\n    <SOAP-ENV:Body>\n        <ns1:createPaymentIntentResponse>\n            <createPaymentIntentResult>\n                <success>1</success>\n                <cod_error>0</cod_error>\n                <message_error></message_error>\n                <data>\n                    <item>\n                        <key>token</key>\n                        <value>ItIVyCLrss1IO4kE</value>\n                    </item>\n                </data>\n            </createPaymentIntentResult>\n        </ns1:createPaymentIntentResponse>\n    </SOAP-ENV:Body>\n</SOAP-ENV:Envelope>"
+						}
+					]
+				},
+				{
+					"name": "Confirmar Pago",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <confirmatePayment xmlns=\"http://epayco-soap.local/walletservice/server\">\r\n            <document xmlns=\"\">30796419</document>            \r\n            <session xmlns=\"\">pKQ0TS7r</session>            \r\n        </confirmatePayment>\r\n    </Body>\r\n</Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://epayco-soap.local/walletservice/server",
+							"protocol": "http",
+							"host": [
+								"epayco-soap",
+								"local"
+							],
+							"path": [
+								"walletservice",
+								"server"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Consulta de Saldo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <checkBalance xmlns=\"http://epayco-soap.local/walletservice/server\">\r\n            <document xmlns=\"\">30796419</document>            \r\n            <mobile xmlns=\"\">+5491162192907</mobile>            \r\n        </checkBalance>\r\n    </Body>\r\n</Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://epayco-soap.local/walletservice/server",
+									"protocol": "http",
+									"host": [
+										"epayco-soap",
+										"local"
+									],
+									"path": [
+										"walletservice",
+										"server"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 04 May 2022 05:38:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Ubuntu)"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubdomains"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, private"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6IllFSm0xNXltQVpWTklRUHZpMkhna0E9PSIsInZhbHVlIjoiV3NjMlQ5OExUSFZXRmlnN05PWGY2RVlyTXY3eTZ5VkhVeUVPYTd3VVFXLy9iazZ0cFRxMHIyb00zdlVZRlRCY2c0Ykp2djEzK2pZK0NwSzRTdlplcVB6S1p3bGlRVFNaaTVBQ2w1TnFxVHdEWGdXWnZpSSswQlI1VTZiTVVSdlYiLCJtYWMiOiJmZGEyZjhjMWUxYjBmYzE3OTAwOGIzYzkxZmE5ZmQ1NDczMzY0ZThmZGMzY2M4NjBkYmVhYjU4YjQwNjQ1ZjEyIiwidGFnIjoiIn0%3D; expires=Wed, 04-May-2022 07:38:24 GMT; Max-Age=7200; path=/; samesite=lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "epayco_soap_server_session=eyJpdiI6InNQYmttTTVXZnFDV0o3bVlPTlhoa0E9PSIsInZhbHVlIjoickhZbW1lUjZ1L240b2ZFTVUzNHU2MGNFSUFEdmJTbzN0N0dpdG9sK09MOEd3MXVuYVhnUHFMSitrYk5vWkpZZ0VrT1RnOW15d1BjWkFheXJhRjRqUnBZekdMeEdaakszUnhUSkNmQkpXNnB2VFg5SkQyM3hzcHJUajAwQlhOWjYiLCJtYWMiOiJmYmY3YzI4MGNlMDIzYzNlZjUzMTRhZjg0NGNlNmYyYmVlY2ViMzlkOTU0NmJkYjJkNWYyZWE1YTgwMTliYzYwIiwidGFnIjoiIn0%3D; expires=Wed, 04-May-2022 07:38:24 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Content-Length",
+									"value": "273"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=99"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://epayco-soap.local/walletservice/server\">\n    <SOAP-ENV:Body>\n        <ns1:checkBalanceResponse>\n            <checkBalanceResult>\n                <success>1</success>\n                <cod_error>0</cod_error>\n                <message_error></message_error>\n                <data>\n                    <item>\n                        <key>current_balance</key>\n                        <value>1500.000</value>\n                    </item>\n                </data>\n            </checkBalanceResult>\n        </ns1:checkBalanceResponse>\n    </SOAP-ENV:Body>\n</SOAP-ENV:Envelope>"
+						},
+						{
+							"name": "Confirmar Pago Exitossa",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <confirmatePayment xmlns=\"http://epayco-soap.local/walletservice/server\">\r\n            <document xmlns=\"\">30796419</document>            \r\n            <session xmlns=\"\">pKQ0TS7r</session>            \r\n        </confirmatePayment>\r\n    </Body>\r\n</Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://epayco-soap.local/walletservice/server",
+									"protocol": "http",
+									"host": [
+										"epayco-soap",
+										"local"
+									],
+									"path": [
+										"walletservice",
+										"server"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 04 May 2022 23:20:26 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Ubuntu)"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubdomains"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, private"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6IkxNTGEreGRSbUVsUXIrSDV0d3FIYXc9PSIsInZhbHVlIjoibUpkejgvVmh6L3cxRGZDVW9kRW5rRlk2RTZPOEw4dFMxVUJXdFJZRHZsWUFIbzl4M2oxMzVCT2QrZ2JSSUJxM1dlV2ErbWRqVk9vMkxsME53SnVNaTdqTks1WkxTbEd1aTVxellFS0IrVEtod0hGL0c1ZFBhSkMwaGdvTnd3U1giLCJtYWMiOiJhZWJkOGRlZjE4MjIzOThiNDVjZWU5ZmFhOGI2YmEwNGIxYTJkMjI0ZjdmN2Q4YTIxOTExMzQ2YjIwNzE1MGVjIiwidGFnIjoiIn0%3D; expires=Thu, 05-May-2022 01:20:27 GMT; Max-Age=7200; path=/; samesite=lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "epayco_soap_server_session=eyJpdiI6InlROG82Nys2bE15b1IrbUhHN0ZJd2c9PSIsInZhbHVlIjoiNC9WdVJSOTg3WTJrampiNCs0Y3BhUExYT2xLTFhjYkNXcUhIMkVCTUgzd0hjSXhiNXpjSmhFeStvdWwxTEdFMzhOSVFFekUxQVVmaWF1R2V3SUtVaVhVSHJ3Q0pWd1l4S1djOFVYUzVHQ1ZHSFhIam5VNXJodzltdXJqYlBXRDYiLCJtYWMiOiJhZDI2ZTljMGE5NDEzNDI1YmVkZmIxOTRiYWI4Yjg0Y2U3MTUzOWZkOWFiMzA4NWI0ZjVmZTc2ZjhmOTRmZTVjIiwidGFnIjoiIn0%3D; expires=Thu, 05-May-2022 01:20:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Content-Length",
+									"value": "286"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:ns1=\"http://epayco-soap.local/walletservice/server\">\n    <SOAP-ENV:Body>\n        <ns1:confirmatePaymentResponse>\n            <confirmatePaymentResult>\n                <success>1</success>\n                <cod_error>0</cod_error>\n                <message_error>Operación exitosa</message_error>\n                <data/>\n            </confirmatePaymentResult>\n        </ns1:confirmatePaymentResponse>\n    </SOAP-ENV:Body>\n</SOAP-ENV:Envelope>"
+						},
+						{
+							"name": "Confirmar Pago Fallida",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <confirmatePayment xmlns=\"http://epayco-soap.local/walletservice/server\">\r\n            <document xmlns=\"\">30796419</document>            \r\n            <session xmlns=\"\">pKQ0TS7r</session>            \r\n        </confirmatePayment>\r\n    </Body>\r\n</Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://epayco-soap.local/walletservice/server",
+									"protocol": "http",
+									"host": [
+										"epayco-soap",
+										"local"
+									],
+									"path": [
+										"walletservice",
+										"server"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 04 May 2022 23:20:41 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Ubuntu)"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubdomains"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, private"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6Ikx6RWhnUGJHR3JCUzk4Rm50Tno0UlE9PSIsInZhbHVlIjoiYi9ubnk3cEJJZ2cxczdYbHZCMGFMZEIrVjlocVpkTTVJS1crQmZ6eDcza3RMZXJpdTc0K00wd0p3WitGY2ZSRnZpTUxrc29ZRFZONGZ5a2hQcFNrdnplNGNmMGszVXF3aW9Xcmx1RXp6NGNDS3ZVU0R1bGtRRW5WbmlmVmYzS2wiLCJtYWMiOiI1YWFkZDc2YWJmNDY0YjczY2QxYWQ4ZTFjNWQxMjc5MmRhMGU4NjA4NzBhYzhmN2I0YTY4NGQ0YmRiMjM4NzJlIiwidGFnIjoiIn0%3D; expires=Thu, 05-May-2022 01:20:43 GMT; Max-Age=7200; path=/; samesite=lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "epayco_soap_server_session=eyJpdiI6Ilhrak1wME94WDRoeDFHdWNJVnlsSHc9PSIsInZhbHVlIjoiQmpwbzRHRWptTkFmTUNGelRDR1ZScGtNTUx0K3lENnFJaURNdUtsWG56U25Lbi9OS3pVQ1ErcDd3K0c4Q1orSWtEdWxLZGVIYmVDZDZTQ0NUKy81elFqeU9tKzBSNDVkUEhoU0RiWmZ0N0RQQ3I0UmNVZTBxY3FoNUNGRkYyVDIiLCJtYWMiOiJkYTFmNjEyMmE5OTk2NDc4OTUxMjUyYzcxNmU2ZGI0NmE2NzNjYTYzZGM4YTJmYjQyMGZlYzAwZThmZmI1MDBiIiwidGFnIjoiIn0%3D; expires=Thu, 05-May-2022 01:20:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Content-Length",
+									"value": "304"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:ns1=\"http://epayco-soap.local/walletservice/server\">\n    <SOAP-ENV:Body>\n        <ns1:confirmatePaymentResponse>\n            <confirmatePaymentResult>\n                <success>0</success>\n                <cod_error>1</cod_error>\n                <message_error>Fondos insuficientes para realizar la operación</message_error>\n                <data/>\n            </confirmatePaymentResult>\n        </ns1:confirmatePaymentResponse>\n    </SOAP-ENV:Body>\n</SOAP-ENV:Envelope>"
+						}
+					]
+				},
+				{
+					"name": "WSDL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://epayco-soap.local/walletservice/server?wsdl",
+							"protocol": "http",
+							"host": [
+								"epayco-soap",
+								"local"
+							],
+							"path": [
+								"walletservice",
+								"server"
+							],
+							"query": [
+								{
+									"key": "wsdl",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "WSDL",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://epayco-soap.local/walletservice/server?wsdl",
+									"protocol": "http",
+									"host": [
+										"epayco-soap",
+										"local"
+									],
+									"path": [
+										"walletservice",
+										"server"
+									],
+									"query": [
+										{
+											"key": "wsdl",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 04 May 2022 05:01:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Ubuntu)"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubdomains"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, private"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6IlJzTmhIMDNvckhGUy9NZHpFR2pUeEE9PSIsInZhbHVlIjoiNHorSmVqdndBdVBmV01oN2lBN2JqeUYzUkhxaDBFbHo2SXlldWhiemhBSHNXV09wellCOW1leUVWUnJDOW5rRG9OdmlGVG5tYkhvZ1FSV0wyTHJ3dFZlMkNjRldwZHcyZGphbGRaN09xY0xXT3BTWWFFRmJxaEhMcDVaQ3drekIiLCJtYWMiOiIxNzYwMWI2MzA2NTc2YTNhOTMwZjQyZjllODAxMzkyYjdkZjk1ODM4N2E5ZjkxODdiM2IzMmQ5M2ZiMDkyMGNiIiwidGFnIjoiIn0%3D; expires=Wed, 04-May-2022 07:01:35 GMT; Max-Age=7200; path=/; samesite=lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "epayco_soap_server_session=eyJpdiI6ImNIVmIyeWRWaFJEOGhnS1dEWDhnOVE9PSIsInZhbHVlIjoiYkw5enZQQWJ2MjFhMmlJNDFZRGRxbnpLMEdURW55RXRueXRWeGNRWkpNQnJkbm43WWZtUzRhUWpyVlpDS0ZWQ0F4YlpRWW5YWUh2VW5UMlU4STdSMHozbFd3YnZLMGRxdituWEFnWVp4UE5haVJ2YWNNM0hjeUZpQTJHdmRwcE8iLCJtYWMiOiIwY2JiZGI5Y2M2N2M5ZmU2MjlhMzVkNTVlMzE4MWQyYzE5NzM3NzUzMTU5MDU2YjlkMDlhNTI5NTgwNDUzN2Y0IiwidGFnIjoiIn0%3D; expires=Wed, 04-May-2022 07:01:35 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Content-Length",
+									"value": "835"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<definitions xmlns=\"http://schemas.xmlsoap.org/wsdl/\" xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\" xmlns:tns=\"http://epayco-soap.local/walletservice/server\" xmlns:soap=\"http://schemas.xmlsoap.org/wsdl/soap/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap-enc=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:soap12=\"http://schemas.xmlsoap.org/wsdl/soap12/\" name=\"wallet\" targetNamespace=\"http://epayco-soap.local/walletservice/server\">\n    <types>\n        <xsd:schema targetNamespace=\"http://epayco-soap.local/walletservice/server\">\n            <xsd:element name=\"register\">\n                <xsd:complexType>\n                    <xsd:sequence>\n                        <xsd:element name=\"document\" type=\"xsd:string\" nillable=\"true\"/>\n                        <xsd:element name=\"name\" type=\"xsd:string\" nillable=\"true\"/>\n                        <xsd:element name=\"email\" type=\"xsd:string\" nillable=\"true\"/>\n                        <xsd:element name=\"mobile\" type=\"xsd:string\" nillable=\"true\"/>\n                    </xsd:sequence>\n                </xsd:complexType>\n            </xsd:element>\n            <xsd:complexType name=\"SoapResponse\">\n                <xsd:all>\n                    <xsd:element name=\"success\" type=\"xsd:int\"/>\n                    <xsd:element name=\"cod_error\" type=\"xsd:int\"/>\n                    <xsd:element name=\"message_error\" type=\"xsd:string\"/>\n                    <xsd:element name=\"data\" type=\"soap-enc:Array\"/>\n                </xsd:all>\n            </xsd:complexType>\n            <xsd:element name=\"registerResponse\">\n                <xsd:complexType>\n                    <xsd:sequence>\n                        <xsd:element name=\"registerResult\" type=\"tns:SoapResponse\"/>\n                    </xsd:sequence>\n                </xsd:complexType>\n            </xsd:element>\n            <xsd:element name=\"charge\">\n                <xsd:complexType>\n                    <xsd:sequence>\n                        <xsd:element name=\"document\" type=\"xsd:string\" nillable=\"true\"/>\n                        <xsd:element name=\"mobile\" type=\"xsd:string\" nillable=\"true\"/>\n                        <xsd:element name=\"value\" type=\"xsd:float\" nillable=\"true\"/>\n                    </xsd:sequence>\n                </xsd:complexType>\n            </xsd:element>\n            <xsd:element name=\"chargeResponse\">\n                <xsd:complexType>\n                    <xsd:sequence>\n                        <xsd:element name=\"chargeResult\" type=\"tns:SoapResponse\"/>\n                    </xsd:sequence>\n                </xsd:complexType>\n            </xsd:element>\n            <xsd:element name=\"checkBalance\">\n                <xsd:complexType>\n                    <xsd:sequence>\n                        <xsd:element name=\"document\" type=\"xsd:string\" nillable=\"true\"/>\n                        <xsd:element name=\"mobile\" type=\"xsd:string\" nillable=\"true\"/>\n                    </xsd:sequence>\n                </xsd:complexType>\n            </xsd:element>\n            <xsd:element name=\"checkBalanceResponse\">\n                <xsd:complexType>\n                    <xsd:sequence>\n                        <xsd:element name=\"checkBalanceResult\" type=\"tns:SoapResponse\"/>\n                    </xsd:sequence>\n                </xsd:complexType>\n            </xsd:element>\n        </xsd:schema>\n    </types>\n    <portType name=\"walletPort\">\n        <operation name=\"register\">\n            <documentation>Registrar una nueva cuenta de Usuario</documentation>\n            <input message=\"tns:registerIn\"/>\n            <output message=\"tns:registerOut\"/>\n        </operation>\n        <operation name=\"charge\">\n            <documentation>Cargar Saldo a un usuario</documentation>\n            <input message=\"tns:chargeIn\"/>\n            <output message=\"tns:chargeOut\"/>\n        </operation>\n        <operation name=\"checkBalance\">\n            <documentation>Consulta de Saldo a un usuario</documentation>\n            <input message=\"tns:checkBalanceIn\"/>\n            <output message=\"tns:checkBalanceOut\"/>\n        </operation>\n    </portType>\n    <binding name=\"walletBinding\" type=\"tns:walletPort\">\n        <soap:binding style=\"document\" transport=\"http://schemas.xmlsoap.org/soap/http\"/>\n        <operation name=\"register\">\n            <soap:operation soapAction=\"http://epayco-soap.local/walletservice/server#register\"/>\n            <input>\n                <soap:body use=\"literal\"/>\n            </input>\n            <output>\n                <soap:body use=\"literal\"/>\n            </output>\n        </operation>\n        <operation name=\"charge\">\n            <soap:operation soapAction=\"http://epayco-soap.local/walletservice/server#charge\"/>\n            <input>\n                <soap:body use=\"literal\"/>\n            </input>\n            <output>\n                <soap:body use=\"literal\"/>\n            </output>\n        </operation>\n        <operation name=\"checkBalance\">\n            <soap:operation soapAction=\"http://epayco-soap.local/walletservice/server#checkBalance\"/>\n            <input>\n                <soap:body use=\"literal\"/>\n            </input>\n            <output>\n                <soap:body use=\"literal\"/>\n            </output>\n        </operation>\n    </binding>\n    <service name=\"walletService\">\n        <port name=\"walletPort\" binding=\"tns:walletBinding\">\n            <soap:address location=\"http://epayco-soap.local/walletservice/server\"/>\n        </port>\n    </service>\n    <message name=\"registerIn\">\n        <part name=\"parameters\" element=\"tns:register\"/>\n    </message>\n    <message name=\"registerOut\">\n        <part name=\"parameters\" element=\"tns:registerResponse\"/>\n    </message>\n    <message name=\"chargeIn\">\n        <part name=\"parameters\" element=\"tns:charge\"/>\n    </message>\n    <message name=\"chargeOut\">\n        <part name=\"parameters\" element=\"tns:chargeResponse\"/>\n    </message>\n    <message name=\"checkBalanceIn\">\n        <part name=\"parameters\" element=\"tns:checkBalance\"/>\n    </message>\n    <message name=\"checkBalanceOut\">\n        <part name=\"parameters\" element=\"tns:checkBalanceResponse\"/>\n    </message>\n</definitions>"
+						}
+					]
+				}
+			]
+		}
+	]
+}
