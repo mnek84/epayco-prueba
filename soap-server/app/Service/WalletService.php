@@ -169,12 +169,13 @@ class WalletService
      *
      * @param string $document
      * @param string $session
+     * @param string $token
      *
      * @return 'App\Types\SoapResponse'
      */
-    public function confirmatePayment(string $document,string $session): SoapResponse
+    public function confirmatePayment(string $document,string $session,string $token): SoapResponse
     {
-        $operationToken = OperationToken::bySession($session)->first();
+        $operationToken = OperationToken::bySession($session)->byToken($token)->first();
 
         if (!$operationToken)
             return new SoapResponse(false,1,"No existe la operación");

@@ -22,4 +22,10 @@ class OperationToken extends Model
         return $query->where("session","=",$session);
     }
 
+    public function scopeByToken($query,$token)
+    {
+        return $query->where("token","=",$token);
+    }
+
+
 }
